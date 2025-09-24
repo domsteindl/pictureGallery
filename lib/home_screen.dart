@@ -1,13 +1,51 @@
 import 'package:flutter/material.dart';
+import 'gallery_data.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
+  void locateToDetailPage(index) {}
+  const HomeScreen({super.key, this.onTap});
+  final Function(int)? onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
-      height: 400,
+    return GridView.builder(
+      itemCount: galleryData.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        mainAxisSpacing: 12,
+        crossAxisSpacing: 20,
+        childAspectRatio: 0.82,
+        crossAxisCount: 2,
+      ),
+      itemBuilder: (context, index) {
+        final item = galleryData[index]; // GalleryItem (data)
+
+        // Build a Widget from the data
+        return Column(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadiusGeometry.circular(20),
+              child: Card(
+                clipBehavior: Clip.hardEdge,
+                shape: CircleBorder(
+                  eccentricity: 1,
+                  side: BorderSide(width: 2),
+                ),
+                child: Column(
+                  children: [
+                    AspectRatio(
+                      aspectRatio: 1,
+                      child: GestureDetector(
+                        onTap: () => onTap!(index),
+                        child: Image.asset(item.imagePath, fit: BoxFit.cover),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Text(item.imageTitle),
+          ],
+        );
+      },
     );
   }
 }
