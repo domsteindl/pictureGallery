@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_picture_gallery/about_me_screen.dart';
-import 'package:flutter_picture_gallery/details_screen.dart';
 import 'package:flutter_picture_gallery/home_screen.dart';
 
 void main() {

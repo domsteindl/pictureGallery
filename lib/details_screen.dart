@@ -10,7 +10,7 @@ class DetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 94, 24, 19),
-        title: Text("Details", style: TextStyle(color: Colors.white),),
+        title: Text("Details", style: TextStyle(color: Colors.white)),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -28,8 +28,22 @@ class DetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(galleryData[index].imageTitle),
-                  Text(galleryData[index].imageDescription),
+                  Text(
+                    galleryData[index].imageTitle,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                  Text(
+                    galleryData[index].imageDate,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10.0),
+                    child: Text(galleryData[index].imageDescription),
+                  ),
                 ],
               ),
             ),

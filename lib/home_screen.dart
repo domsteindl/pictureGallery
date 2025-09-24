@@ -11,10 +11,10 @@ class HomeScreen extends StatelessWidget {
     return GridView.builder(
       itemCount: galleryData.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        mainAxisSpacing: 12,
+        mainAxisSpacing: 20,
         crossAxisSpacing: 20,
         childAspectRatio: 0.82,
-        crossAxisCount: 2,
+        crossAxisCount: (MediaQuery.of(context).size.width / 200).toInt(),
       ),
       itemBuilder: (context, index) {
         final item = galleryData[index]; // GalleryItem (data)
@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                 clipBehavior: Clip.hardEdge,
                 shape: CircleBorder(
                   eccentricity: 1,
-                  side: BorderSide(width: 2),
+                  side: BorderSide(width: 3),
                 ),
                 child: Column(
                   children: [
