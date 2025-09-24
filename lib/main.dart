@@ -15,33 +15,21 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  String screenTitle = '';
-
-  int currentIndexNavigation = 0;
+  // int currentIndexNavigation = 0;
   int selectedImageIndex = 0;
   int bottomNavigationBarIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    switch (currentIndexNavigation) {
-      case 0 || 1:
-        screenTitle = "MyGallery";
-        break;
-      case 2:
-        screenTitle = "Details";
-        break;
-      default:
-        screenTitle = "Default";
-    }
     final List<Widget> screens = [
       HomeScreen(
-        onTap: (index) => setState(() {
-          selectedImageIndex = index;
-          currentIndexNavigation = 2;
-        }),
+      //  onTap: (index) => setState(() {
+        //  selectedImageIndex = index;
+         // currentIndexNavigation = 2;
+       // }),
       ),
       AboutMeScreen(),
-      DetailsScreen(index: selectedImageIndex),
+      // DetailsScreen(index: selectedImageIndex),
     ];
 
     return MaterialApp(
@@ -50,7 +38,7 @@ class _MainAppState extends State<MainApp> {
           selectedIndex: bottomNavigationBarIndex,
           onDestinationSelected: (value) => setState(() {
             bottomNavigationBarIndex = value;
-            currentIndexNavigation = value;
+          //  currentIndexNavigation = value;
           }),
           destinations: [
             NavigationDestination(icon: Icon(Icons.image), label: 'Bilder'),
@@ -60,12 +48,13 @@ class _MainAppState extends State<MainApp> {
 
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 94, 24, 19),
-          title: Text(screenTitle),
+          title: Text("MyGallery"),
         ),
         body: IndexedStack(
-          index: currentIndexNavigation == 2
+          index: /* currentIndexNavigation == 2
               ? currentIndexNavigation
-              : bottomNavigationBarIndex,
+              : */
+              bottomNavigationBarIndex,
           children: screens,
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_picture_gallery/details_screen.dart';
 import 'gallery_data.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -34,7 +35,10 @@ class HomeScreen extends StatelessWidget {
                     AspectRatio(
                       aspectRatio: 1,
                       child: GestureDetector(
-                        onTap: () => onTap!(index),
+                        onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: 
+                            (_) => DetailsScreen(index: index)));
+                        },
                         child: Image.asset(item.imagePath, fit: BoxFit.cover),
                       ),
                     ),

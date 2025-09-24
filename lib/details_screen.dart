@@ -10,7 +10,7 @@ class DetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 94, 24, 19),
-        title: Text("Details"),
+        title: Text("Details", style: TextStyle(color: Colors.white),),
       ),
       body: SingleChildScrollView(
         child: Column(
