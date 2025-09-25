@@ -1,38 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_picture_gallery/about_me_screen.dart';
-import 'package:flutter_picture_gallery/home_screen.dart';
+import 'package:flutter_picture_gallery/details_screen.dart';
+import 'package:flutter_picture_gallery/main_screen.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(MainApp());
 }
 
-class MainApp extends StatefulWidget {
+class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
-  @override
-  State<MainApp> createState() => _MainAppState();
-}
-
-class _MainAppState extends State<MainApp> {
   // int currentIndexNavigation = 0;
-  int selectedImageIndex = 0;
-  int bottomNavigationBarIndex = 0;
+  // final int selectedImageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> screens = [
-      HomeScreen(
-      //  onTap: (index) => setState(() {
-        //  selectedImageIndex = index;
-         // currentIndexNavigation = 2;
-       // }),
-      ),
-      AboutMeScreen(),
-      // DetailsScreen(index: selectedImageIndex),
-    ];
-
     return MaterialApp(
-      home: Scaffold(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MainScreen(),
+        //    'detail': (context) => DetailsScreen(index: selectedImageIndex),
+      },
+      onGenerateRoute: (settings) {
+        if (settings.name == '/details') {
+          final index = settings.arguments as int;
+          return MaterialPageRoute(builder: (_) => DetailsScreen(index: index));
+        }
+        return null;
+      },
+
+    
+
+      /* home: Scaffold(
         bottomNavigationBar: NavigationBar(
           selectedIndex: bottomNavigationBarIndex,
           onDestinationSelected: (value) => setState(() {
@@ -57,6 +55,7 @@ class _MainAppState extends State<MainApp> {
           children: screens,
         ),
       ),
+      */
     );
   }
 }

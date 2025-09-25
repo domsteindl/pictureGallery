@@ -39,7 +39,7 @@ class DetailsScreen extends StatelessWidget {
                     galleryData[index].imageDate,
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-
+    
                   Padding(
                     padding: const EdgeInsets.only(top: 10.0),
                     child: Text(galleryData[index].imageDescription),
