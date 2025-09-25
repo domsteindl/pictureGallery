@@ -7,6 +7,7 @@ environment:
   sdk: ^3.9.2
 
 dependencies:
+  flashy_tab_bar2: ^0.0.10
   flutter:
     sdk: flutter
   go_router: ^16.2.4

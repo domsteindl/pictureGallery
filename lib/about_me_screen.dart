@@ -27,12 +27,21 @@ class _AboutMeScreenState extends State<AboutMeScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      padding: EdgeInsets.all(20),
       child: Column(
         children: [
-          
-          ClipRRect(child: Image.asset('assets/images/kaya.jpeg')),
-          Text("Fotograf"),
-          Text(fileContent),
+          ClipOval(
+            child: Image.asset(
+              'assets/images/kaya.jpeg',
+              width: 250,
+              height: 250,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Text("Dominik Steindl", style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400),),
+          Text("Softwareentwickler", style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w600),),
+          SizedBox(height: 25,),
+          Text(fileContent.replaceAll('"', '').replaceAll(r'\n', '\n')),
         ],
       ),
     );

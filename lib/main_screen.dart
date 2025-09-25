@@ -1,3 +1,4 @@
+import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'about_me_screen.dart';
@@ -17,11 +18,6 @@ class _MainScreenState extends State<MainScreen> {
     AboutMeScreen(),
   ];
 
-  void _onTabTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,14 +30,24 @@ class _MainScreenState extends State<MainScreen> {
         index: _selectedIndex,
         children: _screens,
       ),
-      bottomNavigationBar: NavigationBar(
+      bottomNavigationBar: FlashyTabBar(
+        selectedIndex: _selectedIndex,
+        items: [  
+        FlashyTabBarItem(icon: Icon(Icons.image), title: Text("Bilder")) ,
+         FlashyTabBarItem(icon: Icon(Icons.person), title: Text("Über mich"))
+        ], onItemSelected: (value) {
+        setState(() {
+          _selectedIndex = value;
+        });
+      },
+    )/* NavigationBar(
         selectedIndex: _selectedIndex,
         onDestinationSelected: _onTabTapped,
         destinations: const [
           NavigationDestination(icon: Icon(Icons.image), label: 'Bilder'),
           NavigationDestination(icon: Icon(Icons.person), label: 'Über mich'),
         ],
-      ),
+      )*/,
     );
   }
 }
