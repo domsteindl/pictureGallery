@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_picture_gallery/details_screen.dart';
-import 'package:flutter_picture_gallery/main_screen.dart';
+import 'package:flutter_picture_gallery/src/features/gallery/presentation/screens/photo_detail_screen.dart';
+import 'package:flutter_picture_gallery/src/features/main/presentation/screens/main_screen.dart';
 
 void main() {
   runApp(MainApp());
@@ -18,15 +18,15 @@ class MainApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const MainScreen(),
-        //    'detail': (context) => DetailsScreen(index: selectedImageIndex),
+        '/photoDetail': (context) => PhotoDetailsScreen(),
       },
-      onGenerateRoute: (settings) {
-        if (settings.name == '/details') {
-          final index = settings.arguments as int;
-          return MaterialPageRoute(builder: (_) => DetailsScreen(index: index));
-        }
-        return null;
-      },
+      // onGenerateRoute: (settings) {
+      //   if (settings.name == '/details') {
+      //     final index = settings.arguments as int;
+      //     return MaterialPageRoute(builder: (_) => PhotoDetailsScreen(index: index));
+      //   }
+      //   return null;
+      // },
 
     
 

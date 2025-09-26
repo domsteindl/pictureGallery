@@ -1,4 +1,4 @@
-import 'package:flutter_picture_gallery/gallery.dart';
+import 'package:flutter_picture_gallery/src/features/gallery/data/gallery_item.dart';
 
 List<GalleryItem> galleryData = [
   GalleryItem(

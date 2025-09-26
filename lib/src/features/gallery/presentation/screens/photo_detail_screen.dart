@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_picture_gallery/gallery_data.dart';
+import 'package:flutter_picture_gallery/src/features/gallery/domain/entities/gallery_item_entity.dart';
 
-class DetailsScreen extends StatelessWidget {
-  final int index;
-  const DetailsScreen({super.key, required this.index});
+class PhotoDetailsScreen extends StatelessWidget {
+
+  const PhotoDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final GalleryItemEntity item =
+        ModalRoute.of(context)!.settings.arguments as GalleryItemEntity;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 94, 24, 19),
@@ -18,10 +20,7 @@ class DetailsScreen extends StatelessWidget {
             SizedBox(
               height: 500,
               width: double.infinity,
-              child: Image.asset(
-                galleryData[index].imagePath,
-                fit: BoxFit.cover,
-              ),
+              child: Image.asset(item.imagePath, fit: BoxFit.cover),
             ),
             Padding(
               padding: const EdgeInsets.all(13),
@@ -29,20 +28,20 @@ class DetailsScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    galleryData[index].imageTitle,
+                    item.imageTitle,
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 20.0,
                     ),
                   ),
                   Text(
-                    galleryData[index].imageDate,
+                    item.imageDate,
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-    
+
                   Padding(
                     padding: const EdgeInsets.only(top: 10.0),
-                    child: Text(galleryData[index].imageDescription),
+                    child: Text(item.imageDescription),
                   ),
                 ],
               ),

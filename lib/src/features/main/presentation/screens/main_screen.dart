@@ -1,7 +1,7 @@
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
-import 'about_me_screen.dart';
+import '../../../gallery/presentation/screens/gallery_screen.dart';
+import '../../../profile/presentation/screens/about_me_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -14,7 +14,7 @@ class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    HomeScreen(),
+    GalleryScreen(),
     AboutMeScreen(),
   ];
 
