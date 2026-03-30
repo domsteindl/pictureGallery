@@ -28,7 +28,9 @@ class PhotoTile extends StatelessWidget {
                         arguments: item,
                       );
                     },
-                    child: Image.asset(item.imagePath, fit: BoxFit.cover),
+                    child: Hero(
+                      tag: item.imagePath,
+                      child: Image.asset(item.imagePath, fit: BoxFit.cover)),
                   ),
                 ),
               ],

@@ -17,10 +17,13 @@ class PhotoDetailsScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
-              height: 500,
-              width: double.infinity,
-              child: Image.asset(item.imagePath, fit: BoxFit.cover),
+            Hero(
+              tag: item.imagePath,
+              child: SizedBox(
+                height: 500,
+                width: double.infinity,
+                child: Image.asset(item.imagePath, fit: BoxFit.cover),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(13),
